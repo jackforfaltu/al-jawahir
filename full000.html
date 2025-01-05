@@ -1,0 +1,377 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html dir="rtl">
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <title></title>
+
+<style type="text/css">
+
+@font-face {
+    font-family: AlFatemi;
+    src: url(kanz.ttf);
+}
+
+</style>
+<script language=JavaScript>
+function doHighlight(bodyText, searchTerm, highlightStartTag, highlightEndTag)
+{
+
+  if ((!highlightStartTag) || (!highlightEndTag)) {
+    highlightStartTag = "<font style='color:blue; background-color:yellow;'>";
+    highlightEndTag = "</font>";
+}
+
+
+  var newText = "";
+  var i = -1;
+  var lcSearchTerm = searchTerm.toLowerCase();
+  var lcBodyText = bodyText.toLowerCase();
+
+  while (bodyText.length > 0) {
+    i = lcBodyText.indexOf(lcSearchTerm, i+1);
+    if (i < 0) {
+      newText += bodyText;
+      bodyText = "";
+} else {
+      // skip anything inside an HTML tag
+      if (bodyText.lastIndexOf(">", i) >= bodyText.lastIndexOf("<", i)) {
+        // skip anything inside a <script> block
+        if (lcBodyText.lastIndexOf("/script>", i) >= lcBodyText.lastIndexOf("<script", i)) {
+          newText += bodyText.substring(0, i) + highlightStartTag + bodyText.substr(i, searchTerm.length) + highlightEndTag;
+          bodyText = bodyText.substr(i + searchTerm.length);
+          lcBodyText = bodyText.toLowerCase();
+          i = -1;
+         }
+       }
+}
+}
+
+  return newText;
+}
+
+
+
+function highlightSearchTerms(searchText, treatAsPhrase, warnOnFailure, highlightStartTag, highlightEndTag)
+{
+    if (treatAsPhrase) {
+    searchArray = [searchText];
+} else {
+    searchArray = searchText.split(" ");
+}
+  if (!document.body || typeof(document.body.innerHTML) == "undefined") {
+    if (warnOnFailure) {
+      alert("Sorry, for some reason the text of this Page_ is unavailable. Searching will not work.");
+}
+    return false;
+}
+  var bodyText = document.body.innerHTML;
+  for (var i = 0; i < searchArray.length; i++) {
+    bodyText = doHighlight(bodyText, searchArray[i], highlightStartTag, highlightEndTag);
+}
+
+  document.body.innerHTML = bodyText;
+  return true;
+}
+
+
+function searchPrompt(defaultText, treatAsPhrase, textColor, bgColor)
+{
+
+  if (!defaultText) {
+    defaultText = "";
+}
+
+
+  if ((!textColor) || (!bgColor)) {
+    highlightStartTag = "";
+    highlightEndTag = "";
+} else {
+    highlightStartTag = "<font style='color:" + textColor + "; background-color:" + bgColor + ";'>";
+    highlightEndTag = "</font>";
+}
+
+  if (treatAsPhrase) {
+    promptText = "Please enter the phrase you'd like to search for:";
+}  else {
+    promptText = "Please enter the words you'd like to search for:";
+}
+  searchText = prompt(promptText, defaultText);
+
+  if (!searchText)  {
+    alert("No search terms were entered. Exiting function.");
+    return false;
+}
+
+  return highlightSearchTerms(searchText, treatAsPhrase, true, highlightStartTag, highlightEndTag);
+}
+
+</script>
+<script language="javascript">
+function goBack() {
+    window.history.back();
+}
+</script>
+</head>
+<p align="right">
+<a HREF="javascript:history.go(-1)"><img src="home1.gif" /></a></p>
+<p align="left"><input type="button" value="Search in Fehrist" onClick="searchPrompt('', false);"></p>
+
+<body>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full001.html">يوم شهادة امير المؤمنين - 1417</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full004.html"> 30 مي رات نصف اليل - وسيلة مباركة</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full005.html">من خطبة الذكرى - 1418</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full006.html">من التوسل المبارك في يوم عيد الفطر سنة 1418</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full007.html">يوم شهادة اميرالمؤمنين - 1418</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full013.html">من توسل ليلة القدر سنة 1419</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full014.html">من توسل يوم عيدالفطر سنة 1419</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full015.html">من توسل يوم عيدالفطر - 1419</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full018.html">من التوسل يوم الجمعة الاخر سنة 1419</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full019.html">يوم شهادة امير المؤمنين ص ع - 1419</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full034.html">من توسل عيد الفطر - 1420</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full036.html">يوم شهادة امير المؤمنين - 1420</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full042.html">من توسل ليلة الثلاثين - نصف اليل - سنة 1420</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full045.html">من توسل يوم عيد الفطر - 1420</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full048.html">من توسل يوم الجمعة الا خر - 1420</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full051.html">نكتة لطيفة من البيان المبارك - 1420</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full052.html">من توسل ليلة القدر المباركة سنة 1421</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full056.html">من التوسل المبارك - 1421</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full057.html">يوم شهادة مولانا امير المؤمنين ص ع -1421</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full065.html">من توسل ليلة القدر ( بعد صلوة الشفع ) سنة 1421</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full066.html">يوم شهادة امير المؤمنين - 1422</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full071.html">من التوسل المبارك ليلة السابع عشر من شهر رمضان سنة 1422</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full072.html">من التوسل المبارك يوم عيد الفطر سنة 1422</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full075.html">من التوسل المبارك ليلة القدر العظيمة سنة 1422</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full079.html">من التوسل المبارك يوم الجمعة الاخرة - 1422</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full081.html">من التوسل المبارك ليلة شهادة امير المؤمنين 1422</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full082.html">المقدمة</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full085.html">من البيان المبارك في مجلس النكاح - 1423</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full094.html">من التوسل المبارك – يوم عيدالفطر سنة 1423</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full098.html">من التوسل المبارك يوم الجمعة الاخرة من شهر رمضان المعظم سنة 1423</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full099.html">من التوسل المبارك ليلة الثلاثين من شهررمضان المعظم سنة 1423</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full100.html">من التوسل المبارك - ليلة القدر العظيمة سنة 1423</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full103.html">يوم عرس الداعي الاجل سيدنا طاهرسيف الدين رض – 1423</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full124.html">يوم شهادة امير المؤمنين ص ع -1423</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full142.html">من التوسل المبارك يوم عيد الفطر سنة 1424</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full144.html">من التوسل المبارك ليلة القدر العظيمة سنة 1424</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full147.html">من التوسل المبارك اْخري جمعة -1424</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full148.html">من التوسل المبارك ليلة الثلاثين من شهر رمضان المعظم سنة- 1424</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full150.html">يوم المبعث الشريف - 1424</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full152.html">يوم شهادة امير المؤمنين ص ع -1424</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full166.html">من بيان ذكرى - 1424</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full168.html">بيان عرس الداعي الاجل سيدنا طاهرسيف الدين رض - 1424</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full183.html">5شهرشوال المكرم - 1424</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full205.html">من بيان ذكرى - 1425</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full229.html">يوم شهادة امير المؤمنين ص ع - 1425</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full242.html">التوسل المبارك ليلة الثلاثين - 1425</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full247.html">من التوسل المبارك ليلة القدر العظيمة - 1425</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full252.html">من التوسل المبارك يوم عيدالفطر– 1425</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full257.html">من الوسيلة المباركة يوم عيد الاضحى - 1425 هـ</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full258.html">19 رجب الاصب - 1425</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full281.html">من الوسيلة المباركة ليلة القدر - 1426</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full288.html">يوم عرس الداعي الاجل سيدنا طاهرسيف الدين رض -1426</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full309.html">شهر الله المعظم سنة - 1427</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full310.html">شهر الله المعظم سنة 1427 هـ حسن فير ( دينمال )</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full311.html">شهر الله المعظم سنة - 1427</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full327.html">8 جمادى الاخرى - 1427 - ضيافة</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full328.html">18 مي راتے صفر المظفر سنة 1427هـ ضيافة اْركيٹيك</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full329.html">22 صفر المظفر سنة 1427 هـ ضيافة التعليم</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full330.html">8 جمادى الاولى سنة 1427 هـ ضيافة بر مينگهام ( لندن )</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full332.html">23 جمادى الاخرى ضيافة برهانپور جمعية (ممبئي )</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full335.html">14 جمادى الاولى سنة 1427 هـ ضيافة برهاني ويمنس ( لندن )</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full336.html">6 صفر المظفر سنة 1427 هـ ضيافة برهاني ويمنس</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full337.html">4 ربيع الاول سنة 1427 هـ ضيافة جمالي محلة نوجوانو</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full338.html">7 جمادي الاخرى سنة 1427 هـ ضيافة جمالي محلة – ممبئي</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full340.html">25 صفر المظفر ني راتے سنة 1427 هـ ضيافة داكٹرس</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full342.html">24 جمادى الاولى سنة 1427 هـ ضيافة رداء Association</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full343.html">22 مي راتے صفر المظفر سنة 1427 هـ ضيافة سورت نا مؤمنين</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full344.html">23 صفرالمظفر سنة 1427 هـ ضيافة سيدهپور</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full345.html">29 صفر المظفر سنة 1427 هـ ضيافة سيفي محل نا خدام</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full346.html">10 جمادى الاخرى - 1427</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full348.html">25 صفر المظفر سنة 1427 هـ ضيافة عمال كرام</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full354.html">21 جمادى الاخرى سنة 1427 هـ ضيافة گودهرا (ممبئي )</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full355.html">4 رجب الاصب سنة 1427 هـ ضيافة كوئمبتور (ممبئي)</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full356.html">7 جمادى الاولى سنة 1427 هـ ضيافة ليسٹر (لند ن)</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full357.html">29 ربيع ا لاخر سنة 1427 هـ ضيافة مانچيسٹر (لندن)</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full359.html">3 رجب الاصب سنة 1427 هـ ضيافة مدراس (ممبئي)</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full361.html">7 رجب الاصب سنة 1427 هـ ضيافة مرول ( ممبئي)</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full363.html">6 رجب الاصب سنة 1427 هـ ضيافة مؤمنات ناحلقة ( ممبئي)</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full365.html">29 جمادى الاولى سنة 1427 هـ ضيافة ناسك جمعية نا بئيراؤ</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full366.html">8 صفر المظفر سنة 1427 هـ ضيافة المدرسة السيفية البرهانية</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full368.html">22 ربيع الاول سنة 1427 هـ ضيافة امريكه (لندن)</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full369.html">27 جمادي الاولى سنة 1427 هـ برهاني ويمسن ضيافة (پرا ممبئي)</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full370.html">26 جمادى الاخرى - 1427</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full372.html">18 جمادي الاخرى سنة 1427 هـ ضيافة سكندراباد (ممبئي)</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full373.html">12 جمادي الاخرى سنة 1427 هـ ضيافة – سورت (ممبئي)</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full374.html">ضيافة داعي الله الامين وولي النعمة - 1427 هـ</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full379.html">10 صفر المظفر سنة 1427 هـ ضيافة شباب انے طلباء</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full380.html">9 رجب الاصب سنة 1427 هـ ضيافة قطبي مسجد ( ممبئي)</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full381.html">ليلة القدر جلوس نو وسيلة سنة 1427 هـ</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full382.html">من ذكرى - 1427</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full400.html">12محرم الحرام سنة 1427 هـ مشائخ كرام ني ضيافة</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full403.html">عيد الفطر سنة 1427 هـ</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full410.html">23 مي ليلة القدر سنة 1427 هـ بدري محل ني مسجد ممبئي</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full415.html">يوم عرس الداعي الاجل سيدنا طاهرسيف الدين رض – 1427</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full438.html">تاريخ 21 من شهر شوال المكرم سنة 1428 هـ</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full439.html">يوم عرس الداعي الاجل سيدنا طاهرسيف الدين رض – 1427</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full447.html">افتتاح القبة المباركة للداعي الاجل حاتم الخيرات سيدنا حاتم محي الدين رض</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full448.html">افتتاح القبة المباركة المشرقة للداعي الاجل سيدنا علي شمس الدين رض في الشارقة</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full449.html">سفي محل : تاريخ 12 شهرشوال المكرم سنة 1428 هـ،</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full452.html">ليلة ميلاد امير المؤمنين روضة طاهرة فاطمي مسجد سنة 1428 هـ</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full453.html">من وسيلة ليلة الحادي والعشرين - 1428</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full457.html">وسيلة يوم عيد الفطر سنة 1428 هـ سيفي محل غرفة مباركةما سي</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full462.html">ليلة القدر نو وسيلة بدري محل ني مسجد سنة 1428 هـ</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full471.html">ا لوعظ المبارك يوم المبعث الشريف سيفي مسجد ( ممبئي) يوم الجمعة</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full480.html">يوم شهادة مولانا قطب الدين الشهيد رض - 1428</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full494.html">يوم العرس للداعي الاجل سيدناطاهرسيف الدين رض سنة 1428 هـ</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full507.html">ابتداء الشفهي الامتحان- 1429 هـ</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full511.html">اختتام الشفهي الامتحان - 1429</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full517.html">حسيني محلة ضيافة - 1429 هـ</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full521.html">من بيان مجلس الذكرى - 1429</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full532.html">من الوسيلة المباركة في ليلة القدر بدري مسجد ممبئي 1429 هـ</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full541.html">وداع ني مجلس - كولمبو - 1429</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full544.html">يوم الاربعين لشهادة الامام الحسين ع م غرة المساجد ممبئي 1429 هـ</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full556.html">يوم المبعث الشريف – 1429</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full560.html">يوم الميلاد السابع والتسعين غرة المساجد ممبئي 1429</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full581.html">يوم شهادة امير المؤمنين ص ع - 1429 هـ</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full589.html">يوم شهادة الامام الحسن ع م سيفي مسجد مرول 1429 هـ</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full598.html">يوم عرس الداعي الاجل سيدناحاتم محي الدين رض - 1429</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full613.html">يوم عرس الداعي الاجل سيدنا نور محمد نور الدين رض - 1429</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full615.html">يوم عرس الداعي الاجل سيدنا شيخاْدم صفي الدين رض بريد فورد 1429 هـ</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full619.html">يوم عرس سيدي فخر الدين الشهيد قس - 1429</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full635.html">يوم عرس سيدنا طاهر سيف الدين رض – 1429</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full652.html">يوم ميلاد النبي صلع - 1429</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full663.html">اسكني يا مباركة</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full664.html">ان الذي فرض عليك القران لرادك الى معاد</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full665.html">انسان فرشته كيم بني سكے</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full666.html">اْنسؤو نا نجوْى</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full667.html">اهل بيت سگلا حزن ما چھے</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full671.html">ايك شيخ گهنا قديم</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full672.html">بعث</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full673.html">تسع ْأيات بينات</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full675.html">تسعة رهط يفسدون في الارض</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full676.html">تين لقمة</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full677.html">پلّة - بهاري انے هلكا</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full678.html">جه چھے ته تواضع چھے</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full679.html">جواهر الدعاء المستجاب - دعاء نا جواهر</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full681.html">جواهر جه امام نا انوار چھے</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full682.html">خون نا قطرة</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full683.html">دعاة نے اقصىْ طرف شوق چھے</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full684.html">دلائل معجزة الحسين المظلوم</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full687.html">رج رج ني بركة</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full689.html">رسول الله صلع نا داعي ط ع ني نماز</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full690.html">روزي كهينچوا نا نسخةؤ</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full692.html">زندگي نو مركز – مسجد</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full693.html">سيدنا ادريس يه لكهو - اهني تصديق</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full696.html">شريعة نو جمال تمارو جمال هوئي</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full697.html">شهزادي بتول بهن صاحبة ني حفاظة كيدي</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full698.html">شيخ الدعاة المطلقين رض</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full699.html">طلب ني معنى</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full700.html">عاشوراء نا دن كستوري</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full703.html">علمي نهضة عشرة مباركة</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full704.html">علي بن سالم نا خواب</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full705.html">فاذا عزمت فتوكل على الله</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full706.html">فاطمة ني خوشبو</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full707.html">قرضا حسنا Economic Activity چھے</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full708.html">كل حين</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full709.html">كوين ايليزا بيتهـ</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full710.html">لطيف وات</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full711.html">ما اظهر ت اعصار اْبائه * شانا كما اظهره عصره</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full717.html">مصر ما ضريح نا چوگرد سور نكلي گئي</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full718.html">ملك ني جنسية انے مكان ني ملكية ني ذكر</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full719.html">ممبئي نا هنگام ما وعظ فرماوي</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full720.html">من كل امر سلام</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full721.html">مؤمنين نے ديكهوو يه ج ماري تفريح چھے</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full722.html">ناصح امين</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full724.html">نحن اولياءكم في الحيوة الدنيا والاخرة</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full725.html">نهضة علمية عملية</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full726.html">نهضة علمية - تعليم انے تربية</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full727.html">نفس مطمئنة</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full728.html">ابتداء الامتحان الشفهي – 1429</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full731.html">الاختتام-  الامتحان الشفهي- 1430</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full740.html">8شوال المكرم - 1430</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full741.html">خطاب المدرسة السيفية البرهانية - 1430</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full746.html">ضيافة سبيل حسين - 1430</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full748.html">ليلة شهادة مولاتنا فاطمة ع م –سيفي محل ممبئي – 1430</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full755.html">مشائخ ني ضيافة - 1430</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full760.html">مقدم ني مجلس - 1430</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full770.html">من الوسيلة المباركة في ليلة السابع عشر - 1430</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full771.html">من الوسيلة المباركة ليلة التاسع عشر - 1430</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full793.html">يوم المبعث الشريف - 1430</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full795.html">من بيان مجلس الذكرى – 1430</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full826.html">وداع ني مجلس- 1430 –دار السلام</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full827.html">وداع ني مجلس 12-صفر المظفر – موضع ممباسا - 1430</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full828.html">وداع ني مجلس 15 ربيع الاول سنة 1420 –موضع نيروبي</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full829.html">وسيلة مباركة يوم عيد الفطر سنة 1430 سيفي محل</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full835.html">وسيلة يوم عيدالاضحى 1429 – سيفي محل</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full838.html">وسيلة ليلة الحادي والعشرين - 1430</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full842.html">وسيلة ليلة القدر –1430</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full852.html">يوم الاربعين لشهادة الامام الحسين ع م- 1430</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full866.html">يوم عرس الداعي الاجل سيدناطاهرسيف الدين رض – 1430</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full893.html">يوم عرس سيدي فخر الدين الشهيد قس – 1430</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full912.html">يوم عيد ميلاد النبي سنة 1430 –موضع نيروبي</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full931.html">اختتام الامتحان الشفهي – 1431 هـ</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full939.html">المقدمة – 1431</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full971.html">عود احمد من العتبات العالية والمقامات المقدسة – 1431</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full986.html">ليلة القدر - 1431</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full998.html">ليلة عرس الداعي الاجل سيدنا حاتم رض - 1431</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full1005.html">ليلة عرس المولى الأجل سيدي فخر الدين الشهيد قس – 1431</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full1015.html">مجلس الذكرى - 1431</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full1039.html">مشائخ ني ضيافة - 1431</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full1042.html">نجف اشرف زيارة - 1430</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full1047.html">وعظ مبارك المسجد المعظم كوفه - 1430</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full1064.html">وعظ مبارك يوم ميلاد داعي الزمان ط ع – 1431</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full1093.html">يوم المبعث الشريف - 1431</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full1097.html">19 مي يوم شهادة امير المؤمنين سيفي محل –سنة 1431 هـ</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full1105.html">يوم شهادة مولاتنا فاطمة الزهراء – 1431</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full1127.html">يوم عرس الداعي الاجل سيدنا طاهرسيف الدين رض– 1431</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full1154.html">يوم عرس الداعي الاجل سيدنا قطب الدين الشهيد رض- 1431</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full1170.html">يوم عيد ميلاد النبي صلع سنة 1431هـ</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full1191.html">البيان النوراني (Audio Relay) 9 مي عرفة - 1431</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full1195.html">7 شوال المكرم - 1431</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full1217.html">المقدمة - 1432</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full1227.html">الميلاد المئوي - 1432</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full1242.html">24 شوال المكرم سنة 1431 هـ وداع بيان</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full1246.html">وعظ سيدنا قطب الدين الشهيد رض لندن 1432 هـ</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full1252.html">وعظ مبارك يوم الاربعين موضع كلكته 1432 هـ</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full1272.html">وعظ يوم ميلاد امام الزمان ص ع - 1432</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full1288.html">يوم عرس المولى الاجل سيدي فخر الدين الشهيد قس – 1432</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full1301.html">يوم ميلاد النبي صلع برهانپور 1432 هـ</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full1320.html">المقدمة - 1433</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full1324.html">شهادة مولاتنا فاطمة الزهراء ع م – 1433</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full1331.html">ليلة عرس الداعي الاجل سيدنا عبد القادر نجم الدين رض – 1433</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full1338.html">يوم ميلاد امام الزمان ص ع – 1433</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full1341.html">يوم الاربعين لشهادة الامام الحسين ص ع – 1433</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full1345.html">يوم المبعث الشريف – 1433</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full1356.html">يوم الميلاد الحادي والمائة – 1433</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full1361.html">يوم شهادة امير المؤمنين ص ع – 1433</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full1367.html">يوم عرس الداعي الاجل سيدنا قطب الدين الشهيد رض – 1433</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full1370.html">يوم عرس المولى الاجل سيدي فخر الدين الشهيد قس – 1433</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full1372.html">يوم عرس الداعي الاجل سيدنا طاهر سيف الدين رض – 1433</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full1381.html">يوم عيد الفطر – 1433</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full1385.html">يوم عيد ميلاد النبي صلع – 1433</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full1388.html">الخطبة المباركة - 1434</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full1401.html">وسيلة مباركة يوم عيد الفطر 1434</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full1402.html">وسيلة مباركة يوم عيد الفطر 1434 هـ بدري محل –ممبئي</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full1403.html">وسيلة مباركة يوم عيد الفطر 1434</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full1408.html">وسيلة مباركة 21 مي رات من شهر الله المعظم 1434</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full1410.html">وسيلة مباركة -17 مي رات من شهر الله المعظم 1434هـ</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full1411.html">وسيلة مباركة - 19 مي رات من شهر الله المعظم 1434</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full1412.html">يوم الاربعين من شهادة مولانا الامام الحسين ص ع 1434</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full1427.html">يوم شهادة امير المؤمنين مولانا علي ابن ابي طالب ع م- 1434</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full1439.html">يوم عرس الداعي الاجل سيدنا طاهر سيف الدين رض 1434</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full1458.html">يوم عرس المولى الاجل سيدي عبد القادر حكيم الدين قس 1433</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full1473.html">يوم المبعث الشريف - 1434</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full1493.html">يوم شهادة مولاتنا فاطمة الزهراء ع م- 1434</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full1503.html">يوم عرس الداعي الاجل سيدناقطب الدين الشهيد رض - 1434</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full1510.html">يوم عرس الداعي الاجل سيدنا نور محمد نو ر الدين رض 1434</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full1523.html">يوم عرس الداعي الاجل سيدنا عبد علي سيف الدين رض 1433</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full1533.html">يوم عرس المولى الاجل سيدي فخر الدين الشهيد قس 1434</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full1545.html">يوم عرس الداعي الاجل سيدنا اسمعيل بدر الدين رض - 1434</a><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a style="font-family: AlFatemi; color: #000; font-size: 18pt" class="htmlsplitter_index_a" HREF="full1559.html">يوم ميلاد داعي الزمان ط ع - 1434</a><br>
+</body>
+</html>

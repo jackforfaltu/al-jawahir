@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Jawahir al Kalaam</title>
+<meta name="viewport" content="user-scalable=no,initial-scale = 1.0,maximum-scale = 1.0">
+<link rel="stylesheet" type="text/css" href="fonts/stylesheet.css">
+<link rel="stylesheet" type="text/css" href="css/topcoat-mobile-light.min.css">
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<link rel="stylesheet" type="text/css" href="css/brackets.css"><!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+<!-- Search Box HTML Code Begin: -->
+<noscript> * When open a local search file in Internet Explorer on Windows XP SP 2, the content may be blocked. To open the file correctly, please click the Information Bar on the top of the browser window, and select"Allow Blocked Content".<br> * There will not be such problem after you upload the file to a web server.<br> * To display this page, you need a web browser with JavaScript support.</noscript>
+<script language="javascript">function killerrors(){return true;}window.onerror = killerrors;</script>
+<script language="javascript">function saveselection() {if (document.form_search.sw) document.cookie='sw='+escape(document.form_search.sw.value);if (document.form_search.sm) document.cookie='sm='+escape(document.form_search.sm.value);if (document.form_search.ss) document.cookie='ss='+escape(document.form_search.ss.value);};function readcookie(sname){var c=document.cookie;if (c.length<0) return false;var b=c.indexOf(sname+'=');if (b==-1) return false;var d=c.indexOf(';',b);if (d==-1) d=c.length;return unescape(c.substring(b+sname.length+1,d));};function readselection() {if (document.form_search.sw) {c=readcookie('sw');if (c) document.form_search.sw.value=c;};if (document.form_search.sm) {c=readcookie('sm');if (c) document.form_search.sm.value=c;};if (document.form_search.ss) {c=readcookie('ss');if (c) document.form_search.ss.value=c;};};</script>
+<script language="JavaScript">function OnSearchSubmit(){var b_return=true;if (document.form_search.sw){for(var i=0;i<document.form_search.sw.value.length;i++){if (document.form_search.sw.value.charAt(i)!="")	{lh="searchresult.html?sw="+encodeURIComponent(document.form_search.sw.value);b_return=false;break;}}}if (b_return) return;if (document.form_search.sm) lh+="&sm="+document.form_search.sm.value;if (document.form_search.ss) lh+="&ss="+document.form_search.ss.value;saveselection();window.open(lh,"_self");}</script>
+<body class="light">
+<div id="wrapper">
+<div id="content">
+<form name=form_search action="JavaScript:OnSearchSubmit()">
+<section class="component">
+<input value="" placeholder="Type search word" class="topcoat-search-input full" style="text-align: center; font-size: 24px; font-family: 'kanz';" type="search" name="sw" size="24">
+</section>
+<div class="combo">
+<select name="sm" class="docNav full" style="width: 96%">
+<option selected value=0>All words</option>
+<option value=1>Any words</option>
+<option value=2>Exact phrase</option>
+</select>
+</div>
+<div>&nbsp;</div>
+<input class="topcoat-button full" type="submit" value="Search">
+</form>
+<script language="javascript">readselection();</script>
+<script language="javascript" src="searchdb.js"></script>
+<script language="javascript" src="searchindex.js"></script>
+<!-- Search Box HTML Code End. -->
+<!-- Search result items will be placed here -->
+<script language="javascript">function killerrors(){return true;}window.onerror = killerrors;</script>
+<script language="javascript" src="searchdb.js"></script>
+<script language="javascript" src="searchindex.js"></script>
+<script language="javascript" src="searchfunc.js"></script>
+<!-- Search result items end here -->
+</div>
+<section class="footer" dir="ltr">
+<section class="component">
+<div class="topcoat-button-bar full">
+<div class="topcoat-button-bar__item">
+<a class="topcoat-button-bar__button full lnkborder" style="text-align: center;" href="#">Search</a>
+</div>
+<div class="topcoat-button-bar__item">
+<a class="topcoat-button-bar__button full" style="text-align: center;" href="fehrist.html">Fehrist</a>
+</div>
+</div>
+</section>
+</section>
+</div>
+<style>
+#content {
+/*position: absolute;*/
+}
+.footer{
+position: fixed;
+width: 100%;
+bottom: -1px;
+}
+.lnkborder{
+border: 2px solid #333434;
+background: #595b5b;
+color: #c6c8c8;
+}
+@font-face {
+    font-family: 'kanz';
+    src: url(kanz.ttf);
+}
+</style>
+<script src="js/rainbow-custom.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
